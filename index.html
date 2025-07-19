@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset='utf-8' />
   <title>Mapbox GeoJSON Layer</title>
@@ -7,10 +8,20 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
   <style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
 </head>
+
 <body>
   <div id='map'></div>
 
@@ -20,7 +31,7 @@
     var map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/satellite-streets-v12',
-      center: [175.52,-41.129],
+      center: [175.52, -41.129],
       zoom: 5
     });
 
@@ -67,17 +78,17 @@
         type: 'circle',
         source: 'ProjectCentre1',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre1'] });
@@ -91,21 +102,21 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Name + "</b></br>" +
-                              "<b>ECAN - Rural</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
-                              "<b>Sun Angle: </b> 35 Degrees</br>" +
-                              "<b>Tide: </b> 2 hrs +- low tide</br>" +
-                              //"<b>Survey Type: </b>" + featureProject.properties.Survey_Typ + "</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>ECAN - Rural</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
+            "<b>Sun Angle: </b> 35 Degrees</br>" +
+            "<b>Tide: </b> 2 hrs +- low tide</br>" +
+            //"<b>Survey Type: </b>" + featureProject.properties.Survey_Typ + "</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -164,17 +175,17 @@
         type: 'circle',
         source: 'ProjectCentre2',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre2'] });
@@ -188,21 +199,21 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Name + "</b></br>" +
-                              "<b>ECAN - Rural</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
-                              "<b>Sun Angle: </b> 35 Degrees</br>" +
-                              "<b>Tide: </b> 2 hrs +- low tide</br>" +
-                              //"<b>Survey Type: </b>" + featureProject.properties.Survey_Typ + "</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>ECAN - Rural</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
+            "<b>Sun Angle: </b> 35 Degrees</br>" +
+            "<b>Tide: </b> 2 hrs +- low tide</br>" +
+            //"<b>Survey Type: </b>" + featureProject.properties.Survey_Typ + "</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -261,17 +272,17 @@
         type: 'circle',
         source: 'ProjectCentre3',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre3'] });
@@ -285,20 +296,20 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Name + "</b></br>" +
-                              "<b>ECAN - Rural</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
-                              "<b>Sun Angle: </b> 35 Degrees</br>" +
-                              "<b>Tide: </b> 2 hrs +- low tide</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>ECAN - Rural</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14372</br>" +
+            "<b>Sun Angle: </b> 35 Degrees</br>" +
+            "<b>Tide: </b> 2 hrs +- low tide</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -357,17 +368,17 @@
         type: 'circle',
         source: 'ProjectCentre4',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
 
       map.on('click', function () {
@@ -382,20 +393,20 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Name + "</b></br>" +
-                              "<b>Tasman DC</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14378</br>" +
-                              "<b>Sun Angle: </b> 35 Degrees</br>" +
-                              "<b>Tide: </b> 1.5 hrs +- low tide</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>Tasman DC</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14378</br>" +
+            "<b>Sun Angle: </b> 35 Degrees</br>" +
+            "<b>Tide: </b> 1.5 hrs +- low tide</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -409,7 +420,7 @@
       map.on('mouseleave', 'PCentre', function () {
         map.getCanvas().style.cursor = '';
       });
-});
+    });
 
     map.on('load', function () {
       // Add your sources and layers here...
@@ -454,17 +465,17 @@
         type: 'circle',
         source: 'ProjectCentre5',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre5'] });
@@ -478,20 +489,20 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Proj_Name + "</b></br>" +
-                              "<b>West Coast RC</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14358</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Tide: </b> N/A </br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>West Coast RC</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14358</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Tide: </b> N/A </br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -550,17 +561,17 @@
         type: 'circle',
         source: 'ProjectCentre6',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre6'] });
@@ -574,20 +585,20 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featureProject.properties.Proj_Name + "</b></br>" +
-                              "<b>Greater Wellington RC</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14376</br>" +
-                              "<b>Sun Angle: </b> 35 Degrees</br>" +
-                              "<b>Tide: </b> 3 hrs +- low tide</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>Greater Wellington RC</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14376</br>" +
+            "<b>Sun Angle: </b> 35 Degrees</br>" +
+            "<b>Tide: </b> 3 hrs +- low tide</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            //"<b>Point Density: </b>" + featurePCentre.properties.Point_Dens + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -646,17 +657,17 @@
         type: 'circle',
         source: 'ProjectCentre7',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre7'] });
@@ -670,19 +681,19 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featurePCentre.properties.Proj_Name + "</b></br>" +
-                              "<b>AIDash</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14389</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Tide: </b> N/A</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>AIDash</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14389</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Tide: </b> N/A</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -741,17 +752,17 @@
         type: 'circle',
         source: 'ProjectCentre8',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre8'] });
@@ -765,19 +776,19 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featurePCentre.properties.Proj_Name + "</b></br>" +
-                              "<b>AIDash</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14390</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Tide: </b> N/A</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>AIDash</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14390</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Tide: </b> N/A</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -799,7 +810,7 @@
 
       map.addSource('ProjectArea9', {
         type: 'geojson',
-        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Manawatu_2025%20-%20Project_Area.geojson'
+        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Horizons_2025%20-%20Project_Area.geojson'
       });
 
       map.addLayer({
@@ -814,7 +825,7 @@
 
       map.addSource('CoverageSource9', {
         type: 'geojson',
-        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Manawatu_2025%20-%20Captured_Area.geojson'
+        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Horizons_2025%20-%20Captured_Area.geojson'
       });
 
       map.addLayer({
@@ -829,7 +840,7 @@
 
       map.addSource('ProjectCentre9', {
         type: 'geojson',
-        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Manawatu_2025%20-%20Imagery_Centres.geojson'
+        data: 'https://aerialsurveysnz.github.io/AIDash_2025/Data/PowerCo_Horizons_2025%20-%20Imagery_Centres.geojson'
       });
 
       map.addLayer({
@@ -837,17 +848,17 @@
         type: 'circle',
         source: 'ProjectCentre9',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                19,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            19,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre9'] });
@@ -861,19 +872,19 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featurePCentre.properties.Proj_Name + "</b></br>" +
-                              "<b>AIDash</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14390</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Tide: </b> N/A</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>AIDash</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14390</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Tide: </b> N/A</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -888,7 +899,7 @@
         map.getCanvas().style.cursor = '';
       });
     });
-    
+
 
     map.on('load', function () {
       // Add your sources and layers here...
@@ -933,17 +944,17 @@
         type: 'circle',
         source: 'ProjectCentre10',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.10],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                110,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.10],
+            ['zoom'],
+            0,
+            0.5,
+            110,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre10'] });
@@ -957,19 +968,19 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featurePCentre.properties.Proj_Name + "</b></br>" +
-                              "<b>AIDash</b></br>" +
-                              "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14400</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Tide: </b> N/A</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<b>AIDash</b></br>" +
+            "<span style='color: black;'><b>Project/SN: </b>" + featurePCentre.properties.Project + " / SN14400</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Tide: </b> N/A</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -985,7 +996,7 @@
       });
     });
 
-    
+
 
     map.on('load', function () {
       // Add your sources and layers here...
@@ -1030,17 +1041,17 @@
         type: 'circle',
         source: 'ProjectCentre11',
         paint: {
-				'circle-radius': [
-                                'interpolate',
-                                ['exponential', 1.11],
-                                ['zoom'],
-                                0,
-                                0.5,
-                                111,
-                                15
-                                ],
-                    'circle-color': 'white'
-            }
+          'circle-radius': [
+            'interpolate',
+            ['exponential', 1.11],
+            ['zoom'],
+            0,
+            0.5,
+            111,
+            15
+          ],
+          'circle-color': 'white'
+        }
       });
       map.on('click', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre11'] });
@@ -1054,18 +1065,18 @@
 
           const coordinates = featurePCentre.geometry.coordinates.slice();
           const description = "<span style='color: #7FBA00;font-size: 10px;'><b>" + featurePCentre.properties.Proj_Name + "</b></br>" +
-                              "<span style='color: black;'><b>Project Code: </b>" + featurePCentre.properties.Project + "</br>" +
-                              //"<b>Survey Type: </b>" + featurePCentre.properties.Survey_Typ + "</br>" +
-                              "<b>Sun Angle: </b> 30 Degrees</br>" +
-                              "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-                              "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })+ " km²</br>" +
-                              "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
-                              "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
+            "<span style='color: black;'><b>Project Code: </b>" + featurePCentre.properties.Project + "</br>" +
+            //"<b>Survey Type: </b>" + featurePCentre.properties.Survey_Typ + "</br>" +
+            "<b>Sun Angle: </b> 30 Degrees</br>" +
+            "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
+            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
           var popupContent = document.createElement('div');
           popupContent.innerHTML = description;
 
-          var popup = new mapboxgl.Popup({  closeOnClick: true })
+          var popup = new mapboxgl.Popup({ closeOnClick: true })
             .setLngLat(coordinates)
             .setDOMContent(popupContent)
             .addTo(map);
@@ -1082,4 +1093,5 @@
     });
   </script>
 </body>
+
 </html>
