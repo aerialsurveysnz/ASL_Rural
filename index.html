@@ -205,7 +205,7 @@
           'circle-color': 'white'
         }
       });
-      map.on('click', function () {
+      map.on('click',function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre6'] });
         const featuresCoverage = map.queryRenderedFeatures({ layers: ['CoverageLayer6'] });
         const featuresProject = map.queryRenderedFeatures({ layers: ['ProjectLayer6'] });
@@ -301,7 +301,7 @@
           'circle-color': 'white'
         }
       });
-      map.on('click', function () {
+      map.on('click', 'ProjectLayer7',function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre7'] });
         const featuresCoverage = map.queryRenderedFeatures({ layers: ['CoverageLayer7'] });
         const featuresProject = map.queryRenderedFeatures({ layers: ['ProjectLayer7'] });
@@ -318,7 +318,7 @@
             "<b>Sun Angle: </b> 25 Degrees</br>" +
             "<b>Tide: </b> N/A</br>" +
             "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Area: </b>" + (featureProject.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
@@ -396,7 +396,7 @@
           'circle-color': 'white'
         }
       });
-      map.on('click', function () {
+      map.on('click','ProjectLayer8', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre8'] });
         const featuresCoverage = map.queryRenderedFeatures({ layers: ['CoverageLayer8'] });
         const featuresProject = map.queryRenderedFeatures({ layers: ['ProjectLayer8'] });
@@ -413,7 +413,7 @@
             "<b>Sun Angle: </b> 25 Degrees</br>" +
             "<b>Tide: </b> N/A</br>" +
             "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Area: </b>" + (featureProject.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
@@ -492,7 +492,7 @@
           'circle-color': 'white'
         }
       });
-      map.on('click', function () {
+      map.on('click','ProjectLayer9', function () {
         const featuresPCentre = map.queryRenderedFeatures({ layers: ['PCentre9'] });
         const featuresCoverage = map.queryRenderedFeatures({ layers: ['CoverageLayer9'] });
         const featuresProject = map.queryRenderedFeatures({ layers: ['ProjectLayer9'] });
@@ -509,7 +509,7 @@
             "<b>Sun Angle: </b> 25 Degrees</br>" +
             "<b>Tide: </b> N/A</br>" +
             "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Area: </b>" + (featureProject.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
@@ -605,7 +605,7 @@
             "<b>Sun Angle: </b> 25 Degrees</br>" +
             "<b>Tide: </b> N/A</br>" +
             "<b>Imagery GSD: </b>" + featurePCentre.properties.OrthoGSD_m + "</br>" +
-            "<b>Area: </b>" + (featurePCentre.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
+            "<b>Area: </b>" + (featureProject.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Captured Area: </b>" + (featureCoverage.properties.Area).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + " km²</br>" +
             "<b>Coverage To Date: </b>" + featureCoverage.properties.Percentage_Coverage + "%</b></br>";
 
@@ -715,11 +715,11 @@
         }
       });
 
-      map.on('mouseenter', 'PCentre', function () {
+      map.on('mouseenter', 'PCentre11', function () {
         map.getCanvas().style.cursor = 'pointer';
       });
 
-      map.on('mouseleave', 'PCentre', function () {
+      map.on('mouseleave', 'PCentre11', function () {
         map.getCanvas().style.cursor = '';
       });
     });
